@@ -1,6 +1,3 @@
-# TipSense
-Tip calculator in IOS
-
 # Pre-work - TipSense
 
 TipSense is a tip calculator for the user to provide precise tips amount.
