@@ -20,9 +20,12 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     
         let defaults = NSUserDefaults.standardUserDefaults()
-        let defaultTipSegment = defaults.integerForKey("DefaultTipPercentage")
         
+        let defaultTipSegment = defaults.integerForKey("DefaultTipPercentage")
         tipControl.selectedSegmentIndex = defaultTipSegment
+        
+        let defaultThemeSegment = defaults.integerForKey("DefaultTheme")
+        themeControl.selectedSegmentIndex = defaultThemeSegment
         
     }
 
@@ -45,6 +48,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tipControl: UISegmentedControl!
    
+    @IBOutlet weak var themeControl: UISegmentedControl!
 
        
     @IBAction func setTips(sender: AnyObject) {
@@ -57,6 +61,12 @@ class SettingsViewController: UIViewController {
         print ("%d",tipControl.selectedSegmentIndex)
 
         
+    }
+    @IBAction func setTheme(sender: AnyObject) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger (themeControl.selectedSegmentIndex, forKey: "DefaultTheme")
+        defaults.synchronize()
     }
     
     
